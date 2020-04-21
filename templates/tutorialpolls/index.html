@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+VICIPEDIA
+    <h1 class="text-center mb-3">Incorrect Opinions</h1>    
+    {% if latest_question_list %}
+        {% for question in latest_question_list%}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p class="lead">{{ question.question_text }}</p>
+                    <a href="{% url 'tutorialpolls:detail' question.id %}"
+                    class="btn btn-primary-sm">Vote now and forever be miscounted</a>
+                    <a href="{% url 'tutorialpolls:results' question.id %}"
+                    class="btn btn-secondary-sm">"Counted Votes"</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No polls available</p>
+    {% endif %}
+{% endblock %}
