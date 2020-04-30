@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import Post
 
 posts = [
     {
@@ -22,8 +22,7 @@ def home(request):
     routes traffic to home page
     '''
     context = {
-        'posts': posts,
-        'title': 'სახლი',
+        'posts': Post.objects.all()
     }
     return render(request, 'blog/home.html', context)
 
