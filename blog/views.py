@@ -22,7 +22,8 @@ def home(request):
     routes traffic to home page
     '''
     context = {
-        'posts': Post.objects.all()
+        'posts': Post.objects.all(),
+        'title': 'Mango'
     }
     return render(request, 'blog/home.html', context)
 
